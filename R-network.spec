@@ -4,14 +4,13 @@
 #
 Name     : R-network
 Version  : 1.14.377
-Release  : 16
+Release  : 17
 URL      : https://cran.r-project.org/src/contrib/network_1.14-377.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/network_1.14-377.tar.gz
 Summary  : Classes for Relational Data
 Group    : Development/Tools
 License  : GPL-2.0 GPL-2.0+
 Requires: R-network-lib = %{version}-%{release}
-Requires: R-tibble
 BuildRequires : R-tibble
 BuildRequires : buildreq-R
 
@@ -39,10 +38,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1551890160
+export SOURCE_DATE_EPOCH=1552836736
 
 %install
-export SOURCE_DATE_EPOCH=1551890160
+export SOURCE_DATE_EPOCH=1552836736
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -78,8 +77,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library network|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  network || :
 
 
 %files
@@ -114,9 +112,22 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/network/html/R.css
 /usr/lib64/R/library/network/include/netregistration.h
 /usr/lib64/R/library/network/include/network.h
-/usr/lib64/R/library/network/libs/symbols.rds
 /usr/lib64/R/library/network/network.api/networkapi.c
 /usr/lib64/R/library/network/network.api/networkapi.h
+/usr/lib64/R/library/network/tests/as.edgelist_tests.R
+/usr/lib64/R/library/network/tests/benchmarks
+/usr/lib64/R/library/network/tests/general.tests.R
+/usr/lib64/R/library/network/tests/general.tests2.R
+/usr/lib64/R/library/network/tests/list.attribute.tests.R
+/usr/lib64/R/library/network/tests/misc_tests.R
+/usr/lib64/R/library/network/tests/network.access.test.R
+/usr/lib64/R/library/network/tests/network.battery.R
+/usr/lib64/R/library/network/tests/pathological.tests.R
+/usr/lib64/R/library/network/tests/plot_tests.R
+/usr/lib64/R/library/network/tests/plotflo.R
+/usr/lib64/R/library/network/tests/read.paj_tests.R
+/usr/lib64/R/library/network/tests/speedTests.R
+/usr/lib64/R/library/network/tests/vignette.R
 
 %files lib
 %defattr(-,root,root,-)
