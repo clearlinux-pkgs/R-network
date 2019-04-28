@@ -4,16 +4,13 @@
 #
 Name     : R-network
 Version  : 1.15
-Release  : 22
+Release  : 23
 URL      : https://cran.r-project.org/src/contrib/network_1.15.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/network_1.15.tar.gz
 Summary  : Classes for Relational Data
 Group    : Development/Tools
 License  : GPL-2.0 GPL-2.0+
 Requires: R-network-lib = %{version}-%{release}
-Requires: R-pillar
-Requires: R-pkgconfig
-Requires: R-tibble
 BuildRequires : R-pillar
 BuildRequires : R-pkgconfig
 BuildRequires : R-tibble
@@ -43,10 +40,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1554225343
+export SOURCE_DATE_EPOCH=1556459804
 
 %install
-export SOURCE_DATE_EPOCH=1554225343
+export SOURCE_DATE_EPOCH=1556459804
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -138,4 +135,3 @@ R CMD check --no-manual --no-examples --no-codoc network || :
 %defattr(-,root,root,-)
 /usr/lib64/R/library/network/libs/network.so
 /usr/lib64/R/library/network/libs/network.so.avx2
-/usr/lib64/R/library/network/libs/network.so.avx512
