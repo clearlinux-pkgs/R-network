@@ -4,15 +4,16 @@
 #
 Name     : R-network
 Version  : 1.15
-Release  : 25
+Release  : 26
 URL      : https://cran.r-project.org/src/contrib/network_1.15.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/network_1.15.tar.gz
 Summary  : Classes for Relational Data
 Group    : Development/Tools
 License  : GPL-2.0 GPL-2.0+
 Requires: R-network-lib = %{version}-%{release}
-BuildRequires : R-pillar
-BuildRequires : R-pkgconfig
+Requires: R-magrittr
+Requires: R-tibble
+BuildRequires : R-magrittr
 BuildRequires : R-tibble
 BuildRequires : buildreq-R
 
@@ -39,13 +40,13 @@ lib components for the R-network package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1556459804
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1569291985
 
 %install
-export SOURCE_DATE_EPOCH=1556459804
+export SOURCE_DATE_EPOCH=1569291985
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -74,7 +75,7 @@ R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} 
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
