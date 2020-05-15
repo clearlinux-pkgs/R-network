@@ -4,7 +4,7 @@
 #
 Name     : R-network
 Version  : 1.16.0
-Release  : 29
+Release  : 30
 URL      : https://cran.r-project.org/src/contrib/network_1.16.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/network_1.16.0.tar.gz
 Summary  : Classes for Relational Data
@@ -35,21 +35,22 @@ lib components for the R-network package.
 
 %prep
 %setup -q -c -n network
+cd %{_builddir}/network
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1575286795
+export SOURCE_DATE_EPOCH=1589586928
 
 %install
-export SOURCE_DATE_EPOCH=1575286795
+export SOURCE_DATE_EPOCH=1589586928
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
