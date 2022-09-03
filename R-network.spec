@@ -4,7 +4,7 @@
 #
 Name     : R-network
 Version  : 1.17.2
-Release  : 50
+Release  : 51
 URL      : https://cran.r-project.org/src/contrib/network_1.17.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/network_1.17.2.tar.gz
 Summary  : Classes for Relational Data
